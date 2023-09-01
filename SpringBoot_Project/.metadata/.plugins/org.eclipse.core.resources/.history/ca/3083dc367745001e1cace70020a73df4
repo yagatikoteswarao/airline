@@ -1,0 +1,94 @@
+package com.jsp.airlines.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jsp.airlines.dto.FlightDto;
+import com.jsp.airlines.dto.PassengerDto;
+import com.jsp.airlines.repository.FlightRepository;
+import com.jsp.airlines.service.AdminService;
+import com.jsp.airlines.service.FlightService;
+
+@RestController
+@RequestMapping("/flight/v1")
+public class FlightController {
+	
+	//create api to search flight based on starting location ,destination,flight date,flight name.
+	
+	@Autowired
+	private FlightService flightService;
+	
+	@GetMapping("/getflightdetailsby/{loc}/{dest}/{date}")
+	public List<FlightDto> getFlightBydetlocdate(@PathVariable("loc") String  location,@PathVariable("dest") String destination,@PathVariable("date") String date)
+	{
+		if(flightService.fetchFlightBylocdestDate(location,destination,date)!=null)
+		{
+			return flightService.fetchFlightBylocdestDate(location, destination, date);
+					//ResponseEntity.status(HttpStatus.FOUND).body("flight Found SuccessFully");
+		}
+		else
+		{
+			return null;//ResponseEntity.status(HttpStatus.NOT_FOUND).body("Flight Not Found");
+		}
+	}	
+	
+	@GetMapping("/getbyflightno/{fno}")
+	public List<FlightDto> searchByFlightNo(@PathVariable("fno") String flightNo)
+	{
+		if(flightService.searchByFlightNo(flightNo)!=null)
+		{
+			return flightService.searchByFlightNo(flightNo);
+					
+					//ResponseEntity.status(HttpStatus.FOUND).body("Flight is Fetched");
+		}
+		else
+		{
+			return null;
+			//ResponseEntity.status(HttpStatus.NOT_FOUND).body("Flight Not Fetched");
+		}
+	}
+	
+	@GetMapping("/getallflights")
+	public List<FlightDto>  searchFlightByNoDateTIme()
+	{
+		if(flightService.getAllFlights()!=null)
+		{
+		return  flightService.getAllFlights();
+				//ResponseEntity.status(HttpStatus.FOUND).body("Fetched All Flights");
+		}
+		else
+		{
+			return null;//ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Fetched");
+		}
+	}
+	
+	@GetMapping("/getflightdetailsbynodatetime/{no}/{date}/{time}")
+	public List<FlightDto> getFlightByNoDateTime(@PathVariable("no") String  flightno,@PathVariable("date") String date,@PathVariable("time") String time)
+	{
+		if(flightService.searchFlightByNoDateTime(FlightDto) !=null)
+		{
+			return flightService.searchFlightByNoDateTime(FlightDto);
+					//ResponseEntity.status(HttpStatus.FOUND).body("flight Found SuccessFully");
+		}
+		else
+		{
+			return null;//ResponseEntity.status(HttpStatus.NOT_FOUND).body("Flight Not Found");
+		}
+	}		
+}
+
+
+
+
+
+
+
+
+

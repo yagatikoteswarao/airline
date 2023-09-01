@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.jsp.airlines.service.AdminService&apos; to &apos;AdminServiceImple&apos;&#x0D;&#x0A;- Original project: &apos;AirLineManagementProject&apos;&#x0D;&#x0A;- Original element: &apos;com.jsp.airlines.service.AdminService&apos;&#x0D;&#x0A;- Renamed element: &apos;com.jsp.airlines.service.AdminServiceImple&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AdminService&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.jsp.airlines.service{AdminService.java[AdminService" matchStrategy="1" name="AdminServiceImple" qualified="false" references="true" similarDeclarations="false" stamp="1692003914926" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,26 @@
+package com.jsp.airlines.service;
+
+import java.util.List;
+
+import com.jsp.airlines.dto.AilLineInfodto;
+import com.jsp.airlines.dto.FlightDto;
+import com.jsp.airlines.dto.PassengerDto;
+import com.jsp.airlines.entity.User;
+
+public interface AdminService {
+	
+	//post Methods
+	int addAirLineInfo(AilLineInfodto dto);
+	int addFlight(FlightDto dto,int id);
+	
+	//Get Methods
+	AilLineInfodto getAirlineInfoById(int id);
+	
+	boolean updateAirlineName(int id,String airname);
+	
+	boolean updateFlightNumTimeNameById(String flightNo,String time,String name,int id);
+	
+	
+	
+	
+}

@@ -1,0 +1,18 @@
+package com.jsp.airlines.service;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+
+import com.jsp.airlines.dto.FlightDto;
+import com.jsp.airlines.entity.Flight;
+
+public interface FlightService {
+		
+	List<FlightDto> fetchFlightBylocdestDate(String location, String destination, String date);
+	
+	List<FlightDto> getAllFlights();
+	
+	List<FlightDto> searchByFlightNo(String flightNo);
+	
+}
